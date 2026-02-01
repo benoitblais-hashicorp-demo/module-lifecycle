@@ -18,20 +18,15 @@ consumer teams regarding module lifecycle events.
 ## Demo Components
 
 1. **Terraform Configuration Files**:
-
-  - **main.tf**: Contains the primary resources and module usage.
-  - **variables.tf**: Defines input variables for customizing the module.
-  - **outputs.tf**: Specifies outputs that are exported after applying the configuration.
+   - **main.tf**: Contains the primary resources and module usage.
+   - **variables.tf**: Defines input variables for customizing the module.
+   - **outputs.tf**: Specifies outputs that are exported after applying the configuration.
 
 2. **Required Variables**:
-
-Before running this demo, ensure you provide values for the following required variables (see variables.tf for details):
-
    - `repository_name`: The name of the repository to be managed or created.
    - `repository_description`: A description for the repository.
 
 3. **Notifications and Workspace Configuration**:
-
 To fully experience the module lifecycle (including deprecation and revocation events), configure notifications in your Terraform
 workspace. For example, enable email notifications for run events or policy checks to receive timely updates about module status changes.
 
