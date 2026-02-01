@@ -68,7 +68,7 @@ The following requirements are needed by this module:
 
 - <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) (>= 1.13.0)
 
-- <a name="requirement_github"></a> [github](#requirement\_github) (~>6.6.0)
+- <a name="requirement_github"></a> [github](#requirement\_github) (>6.6.0)
 
 - <a name="requirement_random"></a> [random](#requirement\_random) (3.7.2)
 
@@ -80,7 +80,7 @@ The following Modules are called:
 
 Source: app.terraform.io/benoitblais-hashicorp/repositories/github
 
-Version: 0.0.1
+Version: 0.0.2
 
 ## Required Inputs
 
