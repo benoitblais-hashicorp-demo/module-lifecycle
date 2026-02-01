@@ -80,7 +80,7 @@ The following Modules are called:
 
 Source: app.terraform.io/benoitblais-hashicorp/repositories/github
 
-Version: 0.0.1
+Version: 0.0.2
 
 ## Required Inputs
 
