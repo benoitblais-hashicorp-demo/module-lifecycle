@@ -49,11 +49,14 @@ module, ensuring compliance and preventing the use of unsupported resources.
 ### The Workflow
 
 1. **Provisioning**: The consumer provisions a GitHub repository using a specific version of the module.
-2. **Deprecation**: The platform team marks this module version as deprecated. A notification is automatically sent to the consumer, alerting them to the deprecation and providing migration guidance.
+2. **Deprecation**: The platform team marks this module version as deprecated. A notification is automatically sent to the consumer,
+alerting them to the deprecation and providing migration guidance.
 3. **Upgrade**: The consumer updates their configuration to use the new, recommended version of the module.
-4. **Revocation**: The platform team marks the new version as revoked. At this point, the consumer can no longer provision or update the repository using the revoked module version. Any attempt to do so will be blocked, ensuring only supported module versions are used.
+4. **Revocation**: The platform team marks the new version as revoked. At this point, the consumer can no longer provision or update the
+repository using the revoked module version. Any attempt to do so will be blocked, ensuring only supported module versions are used.
 
-This workflow demonstrates the full lifecycle of a module from initial provisioning, through deprecation and notification, to enforced revocation, ensuring a safe and well-communicated upgrade path for consumers.
+This workflow demonstrates the full lifecycle of a module from initial provisioning, through deprecation and notification, to enforced
+revocation, ensuring a safe and well-communicated upgrade path for consumers.
 
 ## Demo Value Proposition
 
