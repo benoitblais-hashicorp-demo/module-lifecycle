@@ -1,6 +1,6 @@
 output "git_clone_url" {
   description = "URL that can be provided to git clone to clone the repository anonymously via the git protocol."
-  value       = module.repositories.clone_url
+  value       = module.repositories.git_clone_url
 }
 
 output "html_url" {
