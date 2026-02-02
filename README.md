@@ -36,22 +36,34 @@ notification channels (e.g., Slack, webhooks).
 
 ## How Module Lifecycle Works in This Demo
 
-When a module is deprecated, consumers receive a notification (such as an email or workspace alert) informing them of the deprecation
-and providing guidance for migration or updates. This ensures that users are aware of upcoming changes and can plan accordingly. If a
-module is revoked, it becomes unavailable for use—consumers will no longer be able to deploy or update infrastructure with the revoked
-module, ensuring compliance and preventing the use of unsupported resources.
+When a module is deprecated, Terraform displays a warning such as:
+
+> Warning: Deprecated modules found, consider installing an updated version. The following modules have been deprecated: ...
+
+The module remains usable, but consumers are encouraged to upgrade to a supported version.
+
+When a module is revoked, the behavior is as follows:
+
+> This run will continue because it references a revoked module version that has been used previously in this workspace. Net new
+workspaces that reference this module version will be blocked from making new runs.
+
+This means existing workspaces that have already used the revoked version can continue to run, but new workspaces cannot use the revoked
+version. This ensures a smooth transition while enforcing compliance for new deployments.
+
+In addition, when a module is deprecated or revoked, a Change Request can be generated in the workspace where the module is used. This
+allows teams to formally request, review, and track the necessary updates or migrations, ensuring that changes are managed and audited
+according to organizational processes.
 
 ### The Workflow
 
 1. **Provisioning**: The consumer provisions a GitHub repository using a specific version of the module.
-2. **Deprecation**: The platform team marks this module version as deprecated. A notification is automatically sent to the consumer,
-alerting them to the deprecation and providing migration guidance.
-3. **Upgrade**: The consumer updates their configuration to use the new, recommended version of the module.
-4. **Revocation**: The platform team marks the new version as revoked. At this point, the consumer can no longer provision or update the
-repository using the revoked module version. Any attempt to do so will be blocked, ensuring only supported module versions are used.
+2. **Deprecation**: The platform team marks this module version as deprecated. Terraform displays a warning, but the consumer can
+continue to use the version. It is recommended to upgrade to a supported version.
+3. **Revocation**: The platform team marks the new version as revoked. Existing workspaces that have previously used this version can
+continue to run, but new workspaces will be blocked from using the revoked version.
+1. **Upgrade**: The consumer updates their configuration to use the new, recommended version of the module.
 
-This workflow demonstrates the full lifecycle of a module from initial provisioning, through deprecation and notification, to enforced
-revocation, ensuring a safe and well-communicated upgrade path for consumers.
+This workflow demonstrates the full lifecycle of a module from initial provisioning, through deprecation (with warnings), to revocation (with enforcement for new workspaces), ensuring a safe and well-communicated upgrade path for consumers.
 
 ## Demo Value Proposition
 
@@ -68,7 +80,7 @@ The following requirements are needed by this module:
 
 - <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) (>= 1.13.0)
 
-- <a name="requirement_github"></a> [github](#requirement\_github) (~>6.6.0)
+- <a name="requirement_github"></a> [github](#requirement\_github) (>6.6.0)
 
 - <a name="requirement_random"></a> [random](#requirement\_random) (3.7.2)
 
